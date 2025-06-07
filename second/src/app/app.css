@@ -1,0 +1,22 @@
+.app-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    background-color: #f0f0f0;
+    padding: 0 20px;
+}
+
+.app-container , nav ,a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: large;
+    gap: 20px;
+
+}
+
+.app-container , nav ,a:hover{
+    color: blue;
+}

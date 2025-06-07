@@ -1,0 +1,12 @@
+<div class="counter">
+    <app-display [count]="count"></app-display>
+    <span class="btns">
+        <app-button [btn_name]="'Increment'" [color]="'Green'" class="btn"
+            (click)="handelCounter('increment')"></app-button>
+        <app-button [btn_name]="'Reset'" [color]="'Gray'" class="btn" (click)="handelCounter('reset')"></app-button>
+        <app-button *ngIf="count> -1" [btn_name]="'Decerement'" [color]="'Red'" class="btn"
+            (click)="handelCounter('decerement')"></app-button>
+    </span>
+</div>
+
+<router-outlet></router-outlet>

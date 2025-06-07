@@ -1,0 +1,19 @@
+.home {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.home h1 {
+  font-size: 36px;
+  color: #2c3e50;
+}
+
+.home p {
+  font-size: 18px;
+  color: #555;
+}
+
+.company_img{
+  height: 600px;
+  width: 100%;
+}

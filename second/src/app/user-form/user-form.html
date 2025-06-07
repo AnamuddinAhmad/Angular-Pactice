@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form">
+
+  <label>
+    Name:
+    <input type="text" name="name" [(ngModel)]="user.name" #nameRef="ngModel" required pattern="^[A-Za-z ]+$" />
+    <div *ngIf="nameRef.invalid && nameRef.touched" class="error">
+      <div *ngIf="nameRef.errors?.['required']">Name is required</div>
+      <div *ngIf="nameRef.errors?.['pattern']">Only letters are allowed</div>
+    </div>
+  </label>
+  <label>
+    Email:
+    <input type="email" required name="email" [(ngModel)]="user.email" required />
+  </label>
+
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>

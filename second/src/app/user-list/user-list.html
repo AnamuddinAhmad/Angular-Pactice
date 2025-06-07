@@ -1,0 +1,12 @@
+<div class="view-list">
+    @for (user of users; track $index) {
+    <div style="margin-top: 20px ; margin-left: 20px; border-bottom: 2px solid black; ">
+        <h4>User {{$index + 1}}</h4>
+        <p>Name: {{user.name}}</p>
+        <p>Email: {{user.email}}</p>
+        <button (click)="deleteUser($index)">Delete User</button>
+    </div>
+    }@empty {
+    <p>No user Found</p>
+    }
+</div>
