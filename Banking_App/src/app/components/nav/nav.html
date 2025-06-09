@@ -1,0 +1,10 @@
+<div class="app-header">
+    <h1><a routerLink="/"> BLUE SCOPE BANK</a></h1>
+    <nav>
+        @for (item of items; track $index) {
+
+        <a [routerLink]="item?.path">{{item?.title}}</a>
+        }
+
+    </nav>
+</div>
