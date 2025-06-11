@@ -1,9 +1,25 @@
 <div class="login-container">
-    <form action="" class="form">
+    <form action="" #loginForm="ngForm" ngForm (ngSubmit)="handelLogin(loginForm)" class="form">
         <h2 style="color: white;">Login</h2>
-        <input type="email" name="" id="" placeholder="Enter email here" required>
-        <input type="password" name="" id="" placeholder="Enter password" required>
-        <input type="button" value="Login" class="btn btn-primary">
+        <p *ngIf="sucess" style="color: rgb(209, 20, 20);">*Invalid email and password.</p>
+        <input type="email" [(ngModel)]="loginData.email" name="email" #email="ngModel" placeholder="Enter email here"
+            required pattern="^[a-zA-Z0-9.%+-]+@(gmail\.com|googlemail\.com)$" />
+        <div *ngIf="email.invalid && (submitted || email.dirty || email.touched)" class="error-message">
+            <div *ngIf="email.errors?.['required']" style="color: rgb(209, 20, 20);">*Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']" style="color: rgb(251, 255, 0);">*Please enter a valid Gmail address
+                (e.g., example&#64;gmail.com).</div>
+        </div>
+        <input type="password" [(ngModel)]="loginData.password" name="password" #password="ngModel"
+            placeholder="Enter password" required minlength="6" />
+        <div *ngIf="password.invalid && (submitted || password.dirty || password.touched)" class="error-message">
+            <div *ngIf="password.errors?.['required']" style="color: rgb(209, 20, 20);">*Password is required.</div>
+            <div *ngIf="password.errors?.['minlength']" style="color: rgb(209, 20, 20);">*Password must be at least 6
+                characters.</div>
+        </div>
+
+        <input type="submit" value="Login" class="btn btn-primary" [disabled]="loginForm.invalid" />
+
+
         <p style="text-align: center;">I don't have an <a routerLink="/register">account.</a></p>
     </form>
 </div>

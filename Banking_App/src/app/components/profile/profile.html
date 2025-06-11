@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<app-nav [items]="items"></app-nav>
+<div class="profile-container">
+    <h1 class="user-name"> Welcome to your profile <p>{{userData.name}}</p>
+    </h1>
+    <ul class="list">
+        <span><li>Name : <li>{{userData.name}}</li></span>
+        <span><li>Email : <li>{{userData.email}}</li></span>
+        <span><li>Contact : <li>{{userData.contactNumber}}</li></span>
+        <span><li>Password : <li>{{userData.password}}</li></span>
+        
+    </ul>
+</div>

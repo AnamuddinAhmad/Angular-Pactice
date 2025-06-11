@@ -12,5 +12,10 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: #1f1e1e;
+  background: #020024;
+  background: linear-gradient(
+    169deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(67, 67, 77, 1) 48%
+  );
 }

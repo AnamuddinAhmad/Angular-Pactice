@@ -25,13 +25,23 @@ input {
   border: none;
 }
 
-
 .form p {
-color: white;
+  color: white;
 }
 
-.btn-primary{
-  background-color: #007bff;
+.form p a {
+  text-decoration: none;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(1, 1, 77, 1) 37%,
+    rgba(0, 138, 166, 1) 100%
+  );
   color: white;
   border: none;
   padding: 10px 20px;
@@ -40,7 +50,11 @@ color: white;
   cursor: pointer;
 }
 
-.form input{
+.form input {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.LogoutBtn{
+  
 }

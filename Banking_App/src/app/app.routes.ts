@@ -18,6 +18,16 @@ export const routes: Routes = [
       import('../app/pages/register/register').then((m) => m.Register),
   },
   {
+    path: 'dashboard/:user',
+    loadComponent: () =>
+      import('../app/pages/dashboard/dashboard').then((m) => m.Dashboard),
+  },
+  {
+    path: 'profile/:user',
+    loadComponent: () =>
+      import('../app/pages/profile/profile').then((m) => m.Profile),
+  },
+  {
     path: '**',
     component: PageNotFound,
   },

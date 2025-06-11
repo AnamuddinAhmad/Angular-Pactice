@@ -1,11 +1,41 @@
 <div class="register-container">
-    <form action="" class="form">
+    <form class="form" #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+        <p *ngIf="success" style="color: rgb(30, 177, 30); font-weight: bold;">You have registered Successfully! </p>
         <h2 style="color: white;">Create your Account</h2>
-        <input type="text" name="" id="" placeholder="Enter full name" required>
-        <input type="email" name="" id="" placeholder="Enter email here" required>
-        <input type="number" name="" id="" placeholder="Enter contact number" required>
-        <input type="password" name="" id="" placeholder="Enter password" required>
-        <input type="button" value="Login" class="btn btn-primary">
-        <p style="text-align: center;">Already have an <a routerLink="/login">account.</a></p>
+
+        <input type="text" [(ngModel)]="userData.name" name="name" #name="ngModel" placeholder="Enter full name"
+            required minlength="3" maxlength="50" />
+        <div *ngIf="( submitted || name.dirty || name.touched) && name.invalid" class="error-message">
+            <div *ngIf="name.errors?.['required']" class="error">Name is required.</div>
+            <div *ngIf="name.errors?.['minlength']" class="error">Name must be at least 3 characters.</div>
+            <div *ngIf="name.errors?.['maxlength']" class="error">Name cannot exceed 50 characters.</div>
+        </div>
+
+        <input type="email" [(ngModel)]="userData.email" name="email" #email="ngModel" placeholder="Enter email here"
+            required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" />
+        <div *ngIf="(submitted || email.dirty || email.touched) && email.invalid" class="error-message">
+            <div *ngIf="email.errors?.['required']" class="error">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']" class="error">Please enter a valid email address.</div>
+        </div>
+
+        <input type="number" [(ngModel)]="userData.contactNumber" name="contactNumber" #contactNumber="ngModel"
+            placeholder="Enter contact number" required pattern="^[0-9]{10}$" />
+        <div *ngIf="(submitted||contactNumber.dirty || contactNumber.touched) && contactNumber.invalid"
+            class="error-message">
+            <div *ngIf="contactNumber.errors?.['required']" class="error">Contact number is required.</div>
+            <div *ngIf="contactNumber.errors?.['pattern']" class="error">Contact number must be 10 digits.</div>
+        </div>
+
+        <input type="password" [(ngModel)]="userData.password" name="password" #password="ngModel"
+            placeholder="Enter password" required minlength="6" maxlength="35" />
+        <div *ngIf="(submitted || password.dirty || password.touched) && password.invalid" class="error-message">
+            <div *ngIf="password.errors?.['required']">Password is required.</div>
+            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</div>
+            <div *ngIf="password.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Register" [disabled]="registerForm.invalid" />
+
+        <p style="text-align: center;">Already have an <a routerLink="/login">account</a>.</p>
     </form>
 </div>

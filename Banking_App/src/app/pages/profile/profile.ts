@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { ProfileComp } from '../../components/profile/profile';
 
 @Component({
+  standalone: true,
   selector: 'app-profile',
-  imports: [],
+  imports: [ProfileComp],
   templateUrl: './profile.html',
-  styleUrl: './profile.css'
+  styleUrl: './profile.css',
 })
 export class Profile {
-
+  
 }
