@@ -2,8 +2,10 @@
     <h1><a routerLink="/">BLUE SCOPE BANK </a></h1>
     <div class="navrbar">
         <nav *ngFor="let item of items">
-            <a class="logout" *ngIf="item.path ==='logout'" (click)="handelLogout()">{{item?.title}}</a>
-            <a *ngIf="item?.path !== 'logout'" [routerLink]="item?.path">{{item?.title}}</a>
+            <a [routerLink]="item?.path" [routerLinkActive]="'active'" class="logout" *ngIf="item.path ==='logout'"
+                (click)="handelLogout()">{{item?.title}}</a>
+            <a *ngIf="item?.path !== 'logout'" [routerLink]="item?.path" [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact:true}">{{item?.title}}</a>
         </nav>
 
     </div>

@@ -20,7 +20,7 @@ export class ProfileComp implements OnInit {
     });
     this.items = [
       { path: `/dashboard/${this.currentRoute}`, title: 'Home' },
-      { path: `/profile${this.currentRoute}`, title: 'Profile' },
+      { path: `/profile/${this.currentRoute}`, title: 'Profile' },
       { path: '', title: 'Logout' },
     ];
     this.userData = this.userServices.findByEmail(this.currentRoute);

@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-nav',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule,RouterLinkActive],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })
