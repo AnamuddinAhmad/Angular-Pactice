@@ -1,0 +1,17 @@
+<ng-container>
+  <app-userprofile *ngIf="showUser"></app-userprofile>
+  <h1>The Name is : {{name | titlecase}}</h1>
+  <h1>The Name is : {{name | uppercase}}</h1>
+  <h1>The Name is : {{name | lowercase}}</h1>
+  <h1>The Name is Custom Pipe : {{name | reverse}}</h1>
+  <h1>The INR is : {{curr | currency:'INR'}}</h1>
+  <h1>The USD is : {{curr | currency:'USD'}}</h1>
+  <h1>The Date is : {{ datem | date:'fullDate'}}</h1>
+  <h1>The Date is : {{ datea | date:'fullDate'}}</h1>
+  <h1>The count is : {{count}}</h1>
+  <h1>The Signal count is : {{signalCount()}}</h1>
+  <button (click)="HandelChange()">
+    +1
+  </button>
+</ng-container>
+<router-outlet />
