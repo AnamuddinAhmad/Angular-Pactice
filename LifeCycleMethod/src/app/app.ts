@@ -34,7 +34,7 @@ export class App
     AfterContentChecked,
     AfterViewChecked
 {
-  protected title = 'Multi_StepForm';
+  protected title = 'LifeCycleMethod';
   count: number = 1;
   name = 'Anam';
   datem = '2003-01-26';

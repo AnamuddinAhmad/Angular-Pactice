@@ -1,0 +1,16 @@
+<div class="weather-container">
+            <div class="overlay">
+                <div class="">
+                    <h1 class="heading">Search for Weather</h1>
+                </div>
+                @if (invalid) {
+                <p>Search for valid cities.</p>
+                }
+                <form autocomplete="off" (ngSubmit)="fetchWeather(city)">
+
+                    <input placeholder="Enter You City Name..." type="text" [(ngModel)]="city" name="city" id="">
+                    <input class="submit" type="submit" value="Search" name="Search" id="">
+                </form>
+            </div>
+<div class="overlay-2"></div>
+</div>
