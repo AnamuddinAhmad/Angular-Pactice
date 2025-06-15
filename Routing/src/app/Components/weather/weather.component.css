@@ -29,12 +29,12 @@
 .overlay-2 {
   position: relative;
   width: 50%;
-  height: 90vh;
+  height: 97vh;
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   backdrop-filter: blur(12px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -86,6 +86,7 @@ form input[type="text"]::placeholder {
 
 .submit {
   width: 30%;
+  font-size: large;
   padding: 1rem;
   background-color: white;
   color: black;
@@ -113,7 +114,8 @@ form input[type="text"]::placeholder {
   backdrop-filter: blur(3px);
 }
 
-.leftImg, .rightImg {
+.leftImg,
+.rightImg {
   position: absolute;
   height: 100px;
   width: 100px;
@@ -140,6 +142,7 @@ form input[type="text"]::placeholder {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: -5vw;
 }
 
 .forecast-box {
@@ -162,4 +165,12 @@ form input[type="text"]::placeholder {
 
 svg polyline {
   stroke: lime;
+}
+
+.featherWeather {
+  height: 300px;
+  width: 300px;
+  margin-top: -40px;
+  margin-left: 11vw;
+  margin-bottom: 0vw;
 }

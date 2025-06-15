@@ -1,41 +1,90 @@
 <div class="weather-container">
-    <div class="overlay">
-        <div class="overlay-2">
-            <img [src]="'assets/cloudy-night-1.svg'" alt="Rainy" class="leftImg" />
-            <img [src]="'assets/cloudy-day-1.svg'" alt="Sunny" class="rightImg" />
+  <div class="overlay">
+    <div class="overlay-2">
+      <img [src]="'assets/cloudy-night-1.svg'" alt="Rainy" class="leftImg" />
+      <img [src]="'assets/cloudy-day-1.svg'" alt="Sunny" class="rightImg" />
 
-            <div class="heading-main">
-                <h1 class="heading">Search for {{ WeatherData?.name || 'Weather' }}</h1>
-            </div>
+      <div class="heading-main">
+        <h1 class="heading">Search for {{ WeatherData?.name || "Weather" }}</h1>
+      </div>
 
-            @if (invalid) {
-            <p class="error">Search for valid cities.</p>
-            }
-            <div class="weather-details" *ngIf="WeatherData">
-                <div class="forecast-box">
-                    <p>Today's Forecast</p>
-                    <h2>{{ WeatherData.main.temp }}&deg;C</h2>
-                    <span>{{ WeatherData.name }}</span>
-                </div>
+      @if (invalid) {
+      <p class="error">Search for valid cities.</p>
+      }
+      <img
+        class="featherWeather"
+        [src]="'assets/cloudy-day-3.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Clouds'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/day.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Clear'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/rainy-1.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Rain'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/thunder.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Thunderstorm'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/snowy-1.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Smoke'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/snowy-6.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Fog'"
+        alt=""
+      />
+      <img
+        class="featherWeather"
+        [src]="'assets/snowy-6.svg'"
+        *ngIf="WeatherData?.weather[0]?.main === 'Fog'"
+        alt=""
+      />
 
-                <div class="forecast-box">
-                    <p>Wind/Air Quality</p>
-                    <h2>{{ WeatherData.wind.speed }} km/h</h2>
-                </div>
-
-                <div class="forecast-box">
-                    <p>Today's Forecast</p>
-                    <svg height="40" width="100">
-                        <polyline points="0,30 20,20 40,25 60,15 80,18 100,10"
-                            style="fill:none;stroke:lime;stroke-width:2" />
-                    </svg>
-                </div>
-
-
-            </div>
-            <form autocomplete="off" (ngSubmit)="fetchWeather(city)">
-                <input placeholder="Enter Your City Name..." type="text" [(ngModel)]="city" name="city" />
-                <input class="submit" type="submit" value="Search" />
-            </form>
+      <div class="weather-details" *ngIf="WeatherData">
+        <div class="forecast-box">
+          <p>Today's Forecast</p>
+          <h2>{{ WeatherData.main.temp }}&deg;C</h2>
+          <span>{{ WeatherData.name }}</span>
         </div>
+
+        <div class="forecast-box">
+          <p>Wind/Air Quality</p>
+          <h2>{{ WeatherData.wind.speed }} km/h</h2>
+        </div>
+
+        <div class="forecast-box">
+          <p>Today's Forecast</p>
+          <svg height="40" width="100">
+            <polyline
+              points="0,30 20,20 40,25 60,15 80,18 100,10"
+              style="fill: none; stroke: lime; stroke-width: 2"
+            />
+          </svg>
+        </div>
+      </div>
+      <form autocomplete="off" (ngSubmit)="fetchWeather(city)">
+        <input
+          placeholder="Enter Your City Name..."
+          type="text"
+          [(ngModel)]="city"
+          name="city"
+        />
+        <input class="submit" type="submit" value="Search" />
+      </form>
     </div>
+  </div>
+</div>
