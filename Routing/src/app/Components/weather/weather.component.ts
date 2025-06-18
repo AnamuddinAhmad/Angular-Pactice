@@ -16,6 +16,7 @@ export class WeatherComponents {
   private weatherServices = inject(WeatherService);
 
   fetchWeather(city: string) {
+    //Best approch
     this.weatherServices.getWeatherData(city).subscribe({
       next: (res) => {
         this.WeatherData = res;
@@ -27,6 +28,25 @@ export class WeatherComponents {
         this.invalid = true;
         console.log('Error ', err);
       },
+    });
+    // 2nd approch
+    this.weatherServices.getWeatherData(city).subscribe((res) => {
+      this.WeatherData = res;
+    });
+    //3rd Approch
+    this.weatherServices.getWeatherData(city).subscribe(
+      (res) => {
+        this.WeatherData = res;
+      },
+      (err) => {
+        console.log('Error is erro ');
+      }
+    );
+
+    //4th Approch
+    this.weatherServices.getWeatherData(city).subscribe((res) => {
+      if (res) this.WeatherData = res;
+      else console.log('Something went wrong');
     });
   }
 }
